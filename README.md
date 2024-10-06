@@ -6,6 +6,6 @@
 - from: spice.ai/spice/vercel_ai_sdk/docs
   name: nextjs.docs
 
-- from: spice.ai/spice/vercel-ai-sdk/issues
+- from: spice.ai/spice/vercel_ai_sdk/issues
   name: nextjs.issues
 ```
