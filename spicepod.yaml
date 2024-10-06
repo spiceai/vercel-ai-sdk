@@ -17,7 +17,7 @@ datasets:
 
   - from: github:github.com/vercel/ai/issues
     name: vercel_ai_sdk.issues
-    description: React.js GitHub issues from github.com/vercel/ai
+    description: Vercel AI SDK GitHub issues from github.com/vercel/ai
     params:
       github_token: ${secrets:GITHUB_TOKEN}
     acceleration:
