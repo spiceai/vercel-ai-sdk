@@ -23,7 +23,7 @@ datasets:
       github_token: ${secrets:GITHUB_TOKEN}
     acceleration:
       enabled: true
-      refresh_mode: append
+      refresh_mode: full
       refresh_check_interval: 4h
       refresh_jitter_enabled: true
       refresh_jitter_max: 30m
