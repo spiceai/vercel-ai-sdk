@@ -7,7 +7,9 @@ datasets:
     name: vercel_ai_sdk.docs
     description: Vercel AI SDK documentation from https://sdk.vercel.ai/docs
     params:
-      github_token: ${secrets:GITHUB_TOKEN}
+      github_client_id: ${secrets:GITHUB_CLIENT_ID}
+      github_private_key: ${secrets:GITHUB_PRIVATE_KEY}
+      github_installation_id: ${secrets:GITHUB_INSTALLATION_ID}
       include: "content/docs/**/*.mdx"
     acceleration:
       enabled: true
@@ -20,7 +22,9 @@ datasets:
     description: Vercel AI SDK GitHub issues from github.com/vercel/ai
     time_column: created_at
     params:
-      github_token: ${secrets:GITHUB_TOKEN}
+      github_client_id: ${secrets:GITHUB_CLIENT_ID}
+      github_private_key: ${secrets:GITHUB_PRIVATE_KEY}
+      github_installation_id: ${secrets:GITHUB_INSTALLATION_ID}
     acceleration:
       enabled: true
       refresh_mode: full
