@@ -7,6 +7,7 @@ datasets:
     name: vercel_ai_sdk.docs
     description: Vercel AI SDK documentation from https://sdk.vercel.ai/docs
     params:
+      file_format: md
       github_client_id: ${secrets:GITHUB_CLIENT_ID}
       github_private_key: ${secrets:GITHUB_PRIVATE_KEY}
       github_installation_id: ${secrets:GITHUB_INSTALLATION_ID}
@@ -16,12 +17,23 @@ datasets:
       refresh_check_interval: 4h
       refresh_jitter_enabled: true
       refresh_jitter_max: 15m
+    embeddings:
+      - column: content
+        column_pk:
+          - path
+        use: openai_embeddings
+        chunking:
+          enabled: true
+          target_chunk_size: 512
+          overlap_size: 128
+          trim_whitespace: true
 
   - from: github:github.com/vercel/ai/issues
     name: vercel_ai_sdk.issues
     description: Vercel AI SDK GitHub issues from github.com/vercel/ai
     time_column: created_at
     params:
+      file_format: md
       github_client_id: ${secrets:GITHUB_CLIENT_ID}
       github_private_key: ${secrets:GITHUB_PRIVATE_KEY}
       github_installation_id: ${secrets:GITHUB_INSTALLATION_ID}
@@ -31,3 +43,14 @@ datasets:
       refresh_check_interval: 4h
       refresh_jitter_enabled: true
       refresh_jitter_max: 15m
+    # embeddings:
+    #   - column: title
+    #     column_pk:
+    #       - id
+    #     use: openai_embeddings
+
+embeddings:
+  - from: openai
+    name: openai_embeddings
+    params:
+      openai_api_key: ${ secrets:OPENAI_API_KEY }
