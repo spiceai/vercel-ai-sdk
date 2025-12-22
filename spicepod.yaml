@@ -2,6 +2,9 @@ version: v1beta1
 kind: Spicepod
 name: vercel-ai-sdk
 
+runtime:
+  dataset_load_parallelism: 1
+
 datasets:
   - from: github:github.com/vercel/ai/files/main
     name: vercel_ai_sdk.docs
