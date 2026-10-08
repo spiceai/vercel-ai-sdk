@@ -1,4 +1,4 @@
-version: v1beta1
+version: v2
 kind: Spicepod
 name: vercel-ai-sdk
 
@@ -47,6 +47,7 @@ datasets:
       refresh_check_interval: 4h
       refresh_jitter_enabled: true
       refresh_jitter_max: 15m
+      refresh_sql: "SELECT * FROM vercel_ai_sdk.issues LIMIT 100"
     # embeddings:
     #   - column: title
     #     column_pk:
